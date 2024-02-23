@@ -1,14 +1,21 @@
 <% include ../partials/header.ejs %>
 
-<div class="container center-align">
-  <div class="loginSignup-container">
-    <h4>Login</h4>
-    <form action="/login" method="POST">
-      <input type="text" name="username" placeholder="Username" />
-      <input type="password" name="password" placeholder="Password" />
-      <button class="btn">Submit</button>
-    </form>
-  </div>
+<div class="login-form">
+  <form action="/login" method="POST">
+    <h1 class="display-5 fw-bold">Přihlásit se</h1>
+    <p style="margin-top: -0.5rem; padding-bottom: 1rem;">Pro zveřejnění a správu příspěvků se musíš přihlásit.</p>
+
+    <div class="form-floating">
+      <input type="text" name="username" class="form-control" id="floatingInput" placeholder="nickname">
+      <label for="floatingInput">Uživatelské jméno</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="heslo">
+      <label for="floatingPassword">Heslo</label>
+    </div>
+
+    <button class="btn button-theme w-100 py-2" type="submit">Přihlásit se</button>
+  </form>
 </div>
 
 <% include ../partials/footer.ejs %>

@@ -84,7 +84,7 @@ router.delete("/blog/:id", middleware.checkPostOwnership, function(req, res) {
       danger(`${colors.bgYellow}[DELETE "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
     } else {
       // console.log(returnedData)
-      res.redirect("/blog");
+      res.redirect("/");
     }
   });
 });

@@ -2,22 +2,11 @@
 
 body {
     font-family: "Cairo", sans-serif !important;
+    background-color: #240203 !important;
 }
 
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-  
-.jumbotron {
-    position: relative;
+.logo {
+    height: 50px;
 }
 
 .ad {
@@ -26,8 +15,90 @@ body {
     color: black;
     height: 40rem;
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    justify-content: center;
+    align-items: center;
 }
 
-  
+.image-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(10px) brightness(50%);
+    top: 0%; 
+    left: 0%;
+    background-size: cover;
+    background-position: center;
+}
+
+.button-theme {
+    background-color: #550508 !important;
+    color: #fff !important;
+    margin-right: 0.5rem;
+}
+
+.button-theme:hover {
+    background-color: #610609 !important;
+    color: #fff !important;
+}
+
+.icons {
+    color: #af1318
+}
+
+.dropdown-menu {
+    background-color: #550508 !important;
+    border: none !important
+}
+
+.dropdown-item {
+    background-color: #550508 !important;
+    transition: ease-in-out 100ms;
+}
+
+.dropdown-item:hover {
+    background-color: #610609 !important;
+    transition: ease-in-out 100ms;
+}
+
+.login-form {
+    text-align: center;
+    margin: auto;
+    height: 200px;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-control {
+    background-color: #550508 !important;
+    border: none !important;
+}
