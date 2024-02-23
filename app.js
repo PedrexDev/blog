@@ -1,13 +1,14 @@
-const { log, success, warning, danger, colors } = require('./logger.js');
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const { log, colors } = require('./logger.js');
 const methodOverride = require("method-override");
+
 const indexRoute = require("./routes/index");
 const postRoute = require("./routes/blog");
-const commentRoute = require("./routes/comment");
 const authRoute = require("./routes/auth");
+
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user");
@@ -44,7 +45,6 @@ app.use(function(req, res, next) {
 
 app.use(indexRoute);
 app.use(postRoute);
-app.use(commentRoute);
 app.use(authRoute);
 
 mongoose.connect("mongodb+srv://user:fduZkhYydqbr90OW@testenv.wmjkcx6.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true });

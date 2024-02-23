@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
 const middleware = require("../middleware/auth");
-const { log, colors } = require('../logger.js');
+const { log, success, warning, danger, colors } = require('../logger.js');
 
 router.get("/", function(req, res) {
   Post.find({}, function(err, posts) {
     if (err) {
-      log(`${colors.bgYellow}[GET "/"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+      danger(`${colors.bgYellow}[GET "/"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
     } else {
       res.render("blog/blog", { posts: posts });
     }
@@ -32,7 +32,7 @@ router.post("/blog", middleware.checkLoggedIn, function(req, res) {
     },
     function(err, savedPost) {
       if (err) {
-        log(`${colors.bgYellow}[POST "/blog"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+        danger(`${colors.bgYellow}[POST "/blog"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
       } else {
         res.redirect("/blog");
       }
@@ -45,7 +45,7 @@ router.get("/blog/:id", function(req, res) {
     .populate("comments")
     .exec(function(err, post) {
       if (err) {
-        log(`${colors.bgYellow}[GET "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+        danger(`${colors.bgYellow}[GET "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
       } else {
         res.render("blog/post", { post: post });
       }
@@ -55,7 +55,7 @@ router.get("/blog/:id", function(req, res) {
 router.get("/blog/:id/edit", middleware.checkPostOwnership, function(req, res) {
   Post.findById(req.params.id, function(err, post) {
     if (err) {
-      log(`${colors.bgYellow}[GET "/blog/:id/edit"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+      danger(`${colors.bgYellow}[GET "/blog/:id/edit"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
     } else {
       res.render("blog/edit", { post: post });
     }
@@ -70,7 +70,7 @@ router.put("/blog/:id", middleware.checkPostOwnership, function(req, res) {
   };
   Post.updateOne({ _id: req.params.id }, newData, function(err, returnedData) {
     if (err) {
-      log(`${colors.bgYellow}[PUT "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+      danger(`${colors.bgYellow}[PUT "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
     } else {
       // console.log(returnedData)
       res.redirect("/blog/" + req.params.id);
@@ -81,7 +81,7 @@ router.put("/blog/:id", middleware.checkPostOwnership, function(req, res) {
 router.delete("/blog/:id", middleware.checkPostOwnership, function(req, res) {
   Post.remove({ _id: req.params.id }, function(err, returnedData) {
     if (err) {
-      log(`${colors.bgYellow}[DELETE "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+      danger(`${colors.bgYellow}[DELETE "/blog/:id"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
     } else {
       // console.log(returnedData)
       res.redirect("/blog");
