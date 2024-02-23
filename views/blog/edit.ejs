@@ -1,40 +1,36 @@
 <% include ../partials/header.ejs %>
 
-<div id="new-content" class="center-align">
-        <h1> Edit the Blog Post</h1>
-        <div class="row center-align add-new-container">
-            <form action="/blog/<%= post._id %>?_method=PUT" method="POST" class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">title</i>
-                        <input type = "text" name="title" id="updateTitle" value="<%= post.title %>">
-                        <label for="updateTitle">Title</label>
-                    </div>
+<div id="new-content" class="container">
+    <h1 class="text-center">Edit the Blog Post</h1>
+    <div class="row justify-content-center">
+        <form action="/blog/<%= post._id %>?_method=PUT" method="POST" class="col-md-8">
+            <div class="mb-3">
+                <label for="updateTitle" class="form-label">Title</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="material-icons">title</i></span>
+                    <input type="text" class="form-control" id="updateTitle" name="title" value="<%= post.title %>">
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">image</i>
-                        <input type = "text" name="image" id="updateImage" value="<%= post.image %>">
-                        <label for="updateImage">Image Link</label>
-                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="updateImage" class="form-label">Image Link</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="material-icons">image</i></span>
+                    <input type="text" class="form-control" id="updateImage" name="image" value="<%= post.image %>">
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">create</i>
-                        <textarea name="content" id="updateContent" class="materialize-textarea"><%= post.content %></textarea>
-                        <label for="updateContent">Content</label>
-                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="updateContent" class="form-label">Content</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="material-icons">create</i></span>
+                    <textarea class="form-control" id="updateContent" name="content" rows="6"><%= post.content %></textarea>
                 </div>
-    
-                <div class="row">
-                    <div class="input-field col s12">
-                        <button class="btn waves-effect waves-light">Update<i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
-    </div>    
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Update<i class="material-icons right">send</i></button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <% include ../partials/footer.ejs %>

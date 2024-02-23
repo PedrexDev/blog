@@ -18,7 +18,7 @@ router.get("/blog/new", middleware.checkLoggedIn, function(req, res) {
   res.render("blog/new");
 });
 
-router.post("/blog", middleware.checkLoggedIn, function(req, res) {
+router.post("/", middleware.checkLoggedIn, function(req, res) {
   var author = {
     id: req.user._id,
     username: req.user.username
