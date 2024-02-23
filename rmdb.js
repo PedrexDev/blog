@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 require('dotenv');
 
-const mongoURI = "mongodb+srv://user:LQc6oPXUYafJvL5N@inconspicuousness-db.tv0mlhr.mongodb.net/retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://user:fduZkhYydqbr90OW@testenv.wmjkcx6.mongodb.net/";
 
 async function removeAllCollections() {
     const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
