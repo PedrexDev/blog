@@ -74,7 +74,7 @@ body {
     transition: ease-in-out 100ms;
 }
 
-.login-form {
+.centered {
     text-align: center;
     margin: auto;
     height: 200px;
@@ -86,13 +86,13 @@ body {
     right: 0;
 }
 
-input[type="text"] {
+.login-form input[type="text"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-input[type="password"] {
+.login-form input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -101,4 +101,9 @@ input[type="password"] {
 .form-control {
     background-color: #550508 !important;
     border: none !important;
+}
+
+.input-group-text {
+    border: none !important;
+    background-color: #77080c !important;
 }
