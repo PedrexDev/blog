@@ -34,7 +34,7 @@ router.post("/", middleware.checkLoggedIn, function(req, res) {
       if (err) {
         danger(`${colors.bgYellow}[POST "/blog"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
       } else {
-        res.redirect("/blog");
+        res.redirect("/");
       }
     }
   );
