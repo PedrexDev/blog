@@ -17,6 +17,7 @@ const flash = require('connect-flash');
 var port = 3000;
 
 app.use(methodOverride("_method"));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(flash())
