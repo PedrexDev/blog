@@ -1,5 +1,4 @@
 const { MongoClient } = require('mongodb');
-require('dotenv');
 
 const mongoURI = "mongodb+srv://user:fduZkhYydqbr90OW@testenv.wmjkcx6.mongodb.net/";
 
