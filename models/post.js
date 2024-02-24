@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-    Comment = require('./comment')
+const mongoose = require('mongoose');
+const Comment = require('./comment');
 
 var postSchema = new mongoose.Schema({
     title: String,
