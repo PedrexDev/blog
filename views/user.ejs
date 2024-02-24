@@ -1,8 +1,15 @@
 <% include ./partials/header.ejs %>
 
 <div class="container text-center">
-    <h1 class="display-5 fw-bold"><%= u.name %></h1>
-    <p>text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a text o tom a </p>
+    <h1 class="display-5 fw-bold"><%= user.username %>'s Profile</h1>
+    <p>Joined: <%= user.joined %></p>
+    <p>Total Posts: <%= user.posts.length %></p>
+    <h2>Posts:</h2>
+        <ul>
+            <% user.posts.forEach(function(post) { %>
+                <li><%= post.title %></li>
+            <% }); %>
+        </ul>
 </div>
 
 <% include ./partials/footer.ejs %>

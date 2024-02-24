@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
 const middleware = require("../middleware/auth");
+const User = require("../models/user");
 const { log, success, warning, danger, colors } = require('../logger.js');
 
 router.get("/about", function(req, res){
@@ -9,11 +10,23 @@ router.get("/about", function(req, res){
 })
 
 router.get("/u/:username", function(req, res){
-  const user = req.params.id;
+  const username = req.params.username;
 
-  console.log(user)
-  res.render("about")
-})
+  User.findOne({ username: username })
+    .populate("posts")
+    .exec(function(err, user) {
+      if (err) {
+        console.error("Error finding user:", err);
+        res.status(500).send("An error occurred while fetching user information.");
+      } else {
+        if (user) {
+          res.render("user", { user: user });
+        } else {
+          res.status(404).send("User not found.");
+        }
+      }
+    });
+});
 
 router.get("/", function(req, res) {
   Post.find({}, function(err, posts) {
@@ -34,6 +47,7 @@ router.post("/", middleware.checkLoggedIn, function(req, res) {
     id: req.user._id,
     username: req.user.username
   };
+
   Post.create(
     {
       title: req.body.title,
@@ -43,8 +57,22 @@ router.post("/", middleware.checkLoggedIn, function(req, res) {
     },
     function(err, savedPost) {
       if (err) {
-        danger(`${colors.bgYellow}[POST "/blog"] An error occured:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
+        danger(`${colors.bgYellow}[POST "/"] An error occurred:${colors.reset} ${colors.bgRed}${err}${colors.reset}`);
       } else {
+        // Update the user's posts array
+        User.findById(req.user._id, function(err, foundUser) {
+          if (err) {
+            console.error("Error finding user:", err);
+          } else {
+            foundUser.posts.push(savedPost);
+            foundUser.save(function(err) {
+              if (err) {
+                console.error("Error updating user's posts:", err);
+              }
+            });
+          }
+        });
+        
         res.redirect("/");
       }
     }
