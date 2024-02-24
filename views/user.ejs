@@ -1,15 +1,45 @@
 <% include ./partials/header.ejs %>
 
-<div class="container text-center">
-    <h1 class="display-5 fw-bold"><%= user.username %>'s Profile</h1>
-    <p>Joined: <%= user.joined %></p>
-    <p>Total Posts: <%= user.posts.length %></p>
-    <h2>Posts:</h2>
-        <ul>
-            <% user.posts.forEach(function(post) { %>
-                <li><%= post.title %></li>
-            <% }); %>
-        </ul>
+<div class="container">
+    <img src="/img/user.png" class="user-image">
+    <h1 class="display-5 fw-bold text-center"><%= user.username %></h1>
+    <p style="margin-top: -0.5rem; padding-bottom: 1rem;" class="text-center">Veškéré informace o uživateli <b><%= user.username %></b>.</p>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card user-item">
+                <div class="card-body">
+                    Datum založení účtu<br>
+                    <h2 class="mb-0"><%= user.joined.toLocaleDateString() %></h2> 
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card user-item">
+                <div class="card-body">
+                    Počet příspěvků<br>
+                    <h2 class="mb-0"><%= user.posts.length %></h2> 
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card user-item">
+                <div class="card-body">
+                    Příspěvky<br>
+                    <% if (user.posts.length > 0) { %>
+                        <% user.posts.forEach(function(post) { %>
+                            <h2 class="mb-0">
+                                <a href="/blog/<%= post._id %>"><%= post.title %></a>
+                            </h2>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Žádné příspěvky.</p>
+                    <% } %>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
 
 <% include ./partials/footer.ejs %>

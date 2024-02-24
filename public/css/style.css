@@ -19,6 +19,18 @@ body {
     color: #d6d6d6 !important;
 }
 
+.user-item {
+    border-radius: 6px;
+    background-color: #550508 !important;
+}
+
+.user-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
 .image-container {
     position: relative;
     border-radius: 10px;
