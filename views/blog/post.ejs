@@ -4,7 +4,7 @@
     <img src="<%= post.image %>" class="post-image">
     <div class="image-overlay">
       <h1 class="display-5 fw-bold"><%= post.title %></h1>
-      <span><i class="fa-solid fa-calendar fa-xs"></i> <%= post.created.toDateString() %> ┃ <i class="fa-solid fa-user fa-xs"></i> <%= post.author.username %></span>
+      <span><i class="fa-solid fa-calendar fa-xs"></i> <%= post.created.toLocaleDateString() %> ┃ <i class="fa-solid fa-user fa-xs"></i> <%= post.author.username %></span>
       <span>
         <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center pt-3">

@@ -9,6 +9,16 @@ body {
     height: 50px;
 }
 
+.user-link {
+    transition: ease-in-out 100ms;
+    color: #fff !important;
+}
+
+.user-link:hover {
+    transition: ease-in-out 100ms;
+    color: #d6d6d6 !important;
+}
+
 .image-container {
     position: relative;
     border-radius: 10px;

@@ -4,6 +4,17 @@ const Post = require("../models/post");
 const middleware = require("../middleware/auth");
 const { log, success, warning, danger, colors } = require('../logger.js');
 
+router.get("/about", function(req, res){
+  res.render("about")
+})
+
+router.get("/u/:username", function(req, res){
+  const user = req.params.id;
+
+  console.log(user)
+  res.render("about")
+})
+
 router.get("/", function(req, res) {
   Post.find({}, function(err, posts) {
     if (err) {

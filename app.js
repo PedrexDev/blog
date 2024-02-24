@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const { log, colors } = require('./logger.js');
 const methodOverride = require("method-override");
 
-const indexRoute = require("./routes/index");
 const postRoute = require("./routes/blog");
 const authRoute = require("./routes/auth");
 
@@ -44,7 +43,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(indexRoute);
 app.use(postRoute);
 app.use(authRoute);
 
