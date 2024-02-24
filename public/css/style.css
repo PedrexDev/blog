@@ -9,15 +9,7 @@ body {
     height: 50px;
 }
 
-.ad {
-    border-radius: 6px;
-    background-color: white;
-    color: black;
-    height: 40rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .image-container {
     position: relative;
