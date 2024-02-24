@@ -26,20 +26,20 @@ const colors = {
     bgGray: "\x1b[100m"
 };
 
-const log = message => {
-    console.log(`${colors.bgCyan}${colors.bright}[LOG]${colors.reset} ${message}`);
+const log = msg => {
+    console.log(`${colors.bgCyan}${colors.bright}[LOG]${colors.reset} ${msg}`);
 };
 
-const success = message => {
-    console.log(`${colors.bgGreen}${colors.bright}[SUCCESS]${colors.reset} ${message}`);
+const success = msg => {
+    console.log(`${colors.bgGreen}${colors.bright}[SUCCESS]${colors.reset} ${msg}`);
 };
 
-const warning = message => {
-    console.log(`${colors.bgYellow}${colors.bright}[WARNING]${colors.reset} ${message}`);
+const warning = msg => {
+    console.log(`${colors.bgYellow}${colors.bright}[WARNING]${colors.reset} ${msg}`);
 };
 
-const danger = message => {
-    console.log(`${colors.bgRed}${colors.bright}[DANGER]${colors.reset} ${message}`);
+const danger = msg => {
+    console.log(`${colors.bgRed}${colors.bright}[DANGER]${colors.reset} ${msg}`);
 };
 
 module.exports = { log, success, warning, danger, colors };
