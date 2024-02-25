@@ -1,15 +1,23 @@
 <% const pageTitle = "Registrovat se"; %>
 <% include ../partials/header.ejs %>
 
-<div class="container center-align">
-  <div class="loginSignup-container">
-    <h4>Register</h4>
-    <form action="/register" method="POST">
-      <input type="text" name="username" placeholder="Username" />
-      <input type="password" name="password" placeholder="Password" />
-      <button class="btn">Submit</button>
-    </form>
-  </div>
+<div class="centered login-form">
+  <form action="/register" method="POST">
+    <h1 class="display-5 fw-bold">Vytvořit účet</h1>
+    <p style="margin-top: -0.5rem; padding-bottom: 1rem;">Vytvoříš nový účet.</p>
+
+    <div class="form-floating">
+      <input type="text" name="username" placeholder="Username" class="form-control" id="floatingInput">
+      <label for="floatingInput">Uživatelské jméno</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" name="password" placeholder="Password" class="form-control" id="floatingPassword">
+      <label for="floatingPassword">Heslo</label>
+    </div>
+
+    <button class="btn button-theme w-100 py-2" type="submit">Vytvořit</button>
+  </form>
 </div>
+
 
 <% include ../partials/footer.ejs %>
